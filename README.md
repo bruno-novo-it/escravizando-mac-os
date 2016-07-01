@@ -4,7 +4,7 @@ Olá, seja Bem-vindo! Aqui você encontrará um guia passo-a-passo para transfor
 
 ## Pré-requisitos
 
-* Uma máquina MacOS (http://www.apple.com/br)
+* Uma máquina [MacOS](http://www.apple.com/br)
 * Um Jenkins rodando sua aplicação, seus testes, etc.
 * Muitas configurações  :scream:
 * Muita paciência  :pray:
@@ -36,8 +36,10 @@ Logo após a instalação do [rbenv](https://gist.github.com/leandrocp/1845803),
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 $ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 ~~~
-Reinicie o seu terminal para carregar estas novas configurações, ou execute o comando source ~/.bash_profile.
-
+Reinicie o seu terminal para carregar estas novas configurações, ou execute o comando: 
+~~~
+$ source ~/.bash_profile.
+~~~
 Com essas alteração, o [rbenv](https://gist.github.com/leandrocp/1845803) estará pronto.
 
 Se tudo deu certo, você já pode instalar quantas versões do [Ruby](https://www.ruby-lang.org/en/) você quiser. Para saber quais versões estão disponíveis, execute o comando rbenv install -l
@@ -131,4 +133,5 @@ Iremos agora instalar o [Genymotion](https://www.genymotion.com/), um dos melhor
  
  :warning: **Antes de começarmos a instalação do [Genymotion](https://www.genymotion.com/), temos que fazer um pequeno cadastro com e-mail :e-mail: e senha :key:**
  
-Istalaremos um componente chamado Gerenciador de hardware acelerado [(Intel® HAXM)](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager), um mecanismo de virtualização assistida por hardware (hypervisor) que usa tecnologia de virtualização Intel® (VT) para acelerar o desenvolvimento para [Android](https://developer.android.com/index.html). [Clique aqui]([Android](https://developer.android.com/index.html)) para instalar a última versão.
+Instalaremos um componente chamado Gerenciador de hardware acelerado [(Intel® HAXM)](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager), um mecanismo de virtualização assistida por hardware (hypervisor) que usa tecnologia de virtualização Intel® (VT) para acelerar o desenvolvimento para [Android](https://developer.android.com/index.html). [Clique aqui]([Android](https://developer.android.com/index.html)) para instalar a última versão.
+
