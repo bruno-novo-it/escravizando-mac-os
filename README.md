@@ -107,7 +107,7 @@ CI Group:
 Type the actions you want to install separated by comma (eg. git,xctools) or type * for everything :
 ~~~
 
-Aqui iremos escolher quais componentes iremos instalar, separando-os por vírgula e com letras minúsculas. Ex: calabash,lcov, xctools,fastlane
+Aqui iremos escolher quais componentes iremos instalar, separando-os por vírgula e com letras minúsculas. Ex: carthage,cocoapods,xcodecmdtools,bash-completion,calabash,lcov,xctools,fastlane
 
 Instalaremos agora o Java JDK  :hotsprings:, uma abreviação para Java Development Kit, que é um conjunto de utilitários cuja a finalidade é a permissão para criação de jogos e programas para a plataforma Java. [Clique aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para instalar a versão mais recente.
 
@@ -125,13 +125,68 @@ Começaremos instalando o Android SDK :wrench:, uma caixa de ferramentas para de
 $ brew install android-sdk
 ~~~
 
-Com o comando acima, o Android SDK :wrench: será instalado nesse local: `/usr/local/Cellar/android-sdk/`
+Com o comando acima, o Android SDK :wrench: será instalado aqui: `/usr/local/Cellar/android-sdk/`
 
 
+Precisamos agora configurar o caminho do nosso Android SDK :wrench:, se foi utilizado o comando acima para realizar o download, faremos da seguinte maneira:
+Aba um terminal e digite:
+
+~~~
+nano ~/.bash_profile
+~~~
+Abrirá um arquivo para colocarmos os *caminhos* para o sistema encontrar o Android SDK :wrench:
+
+Adicione, no arquivo, as linhas abaixo:
+
+~~~
+export ANDROID_HOME=/YOUR_PATH_TO/android-sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+~~~
+Onde YOUR_PATH_TO é o local que ficará nosso SDK, nesse caso deixamos no `/usr/local/Cellar/android-sdk/`
+e nosso comando ficará assim: `export ANDROID_HOME=/usr/local/Cellar/android-sdk/`
+
+Para checar se tudo correu bem, digite:
+
+~~~
+source ~/.bash_profile
+echo $ANDROID_HOME
+~~~
+
+
+Pronto, `Android SDK`:wrench: instalado com sucesso, apenas um pouco mais complicado que Next-Next-Finish. :grin:
+
+Um pouco mais atrás, instalamos um padote `faststrap` e nele um outro chamado `fastlane`. `fastlane` é uma ferramenta para iOS, Mac e desenvolvedores Android para automatizar atividades cansativas e tediosas como geração de screnshots, lidar com perfis e provisionamento e liberação de aplicações.:trollface:
+
+Se por algum motivo o `fastlane` não estiver instalado, digite o comando abaixo:
+~~~
+sudo gem install fastlane --verbose
+~~~
+Verifique também se a última versão do `Xcode` está instalado:
+~~~
+xcode-select --install
+~~~
+
+Vá até o diretório do seu projeto:
+~~~
+cd [nome-do-projeto]
+~~~
+Inicie o `fastlane`:
+~~~
+fastlane init
+~~~
+Siga as instruções para configurar o `fastlane`.
+
+E agora vem a grande sacada :tennis:, o `fastlane matchs`. Com ele podemos sincronizar facilmente nossos certificados e perfis com toda a sua equipe usando git
+
+Ele é uma nova abordagem para assinatura de código iOS: Compartilhar um código de assinatura de identidade com toda a sua equipe de desenvolvimento e simplificar a configuração e evitar problemas.
+
+`match` é a implementação do conceito https://codesigning.guide. `match` cria todos os certificados exigidos e perfis de aprovisionamento e os armazena em um repositório git separado. Cada membro da equipe com acesso à repo pode usar essas credenciais para assinatura de código. `match` também repara automaticamente credenciais quebradas ou expiradas. É a maneira mais fácil de compartilhar credenciais de assinatura entre as equipes.
+
+Para facilitar a explicação de como utilizá-lo, acesse [Match Tutorial](https://github.com/fastlane/fastlane/tree/master/match) e siga as instruções.
 
 Iremos agora instalar o [Genymotion](https://www.genymotion.com/), um dos melhores emuladores :iphone: para testar aplicações [Android](https://developer.android.com/index.html).
  
  :warning: **Antes de começarmos a instalação do [Genymotion](https://www.genymotion.com/), temos que fazer um pequeno cadastro com e-mail :e-mail: e senha :key:**
  
 Instalaremos um componente chamado Gerenciador de hardware acelerado [(Intel® HAXM)](https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager), um mecanismo de virtualização assistida por hardware (hypervisor) que usa tecnologia de virtualização Intel® (VT) para acelerar o desenvolvimento para [Android](https://developer.android.com/index.html). [Clique aqui]([Android](https://developer.android.com/index.html)) para instalar a última versão.
-
